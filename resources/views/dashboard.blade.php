@@ -19,7 +19,7 @@
                                         <li><span class="title">Package</span><span class="text ml-auto">{{ $user->subscription->plan->name }}</span></li>
                                         <li><span class="title">Invest Capital</span><span class="text ml-auto">{{ \Illuminate\Support\Number::currency($user->subscription->amount) }}</span></li>
                                         <li><span class="title">Profit</span><span class="text ml-auto">{{ \Illuminate\Support\Number::currency($user->subscription->profit) }}</span></li>
-{{--                                        <li><span class="title">Status</span><span class="text ml-auto">{{ $user->subscription->isActive() ? 'Active' : 'Inactive' }}</span></li>--}}
+                                        <li><span class="title">Status</span><span class="text ml-auto">{{ $user->subscription->isActive() ? 'Active' : 'Inactive' }}</span></li>
                                     @endif
                                 </ul>
                             </div>

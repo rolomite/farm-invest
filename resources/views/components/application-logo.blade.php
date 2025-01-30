@@ -5,4 +5,4 @@
 {{--@else--}}
 {{--    <a href="/" class="brand-logo"><img src="assets/images/logo/logo-black.png" alt="Site Logo"></a>--}}
 {{--@endif--}}
-<h2>{{ config('app.name') }}</h2>
+<h2>{{ env('APP_LOGO') }}</h2>
