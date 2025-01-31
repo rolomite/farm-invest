@@ -28,11 +28,15 @@ class SubscriptionController extends Controller
             $plan = Plan::query()->find($request->plan_id);
 
             $request->user()->withdraw($plan->price);
-            $request->user()->subscription()->create([
+            $subscription = $request->user()->subscription()->firstOrCreate([
                 'plan_id' => $plan->id,
-                'amount' => $plan->price,
+            ], [
+                'plan_id' => $plan->id,
+                'amount' => 0,
                 'profit' => 0,
             ]);
+
+            $subscription->increment('amount', $plan->price);
 
             return redirect('/dashboard')->with('success', "You have successfully subscribed to $plan->name.");
         }catch (BalanceIsEmpty){
